@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://tk4fathh16la"]
+
+[ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_4ntlp"]
+
+[sub_resource type="Animation" id="Animation_chfih"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j4380"]
+resource_name = "from_black_to_normal"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0862745, 0.0862745, 0.0862745, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0qdi7"]
+resource_name = "from_normal_to_black"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.0862745, 0.0862745, 0.0862745, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bji43"]
+_data = {
+"RESET": SubResource("Animation_chfih"),
+"from_black_to_normal": SubResource("Animation_j4380"),
+"from_normal_to_black": SubResource("Animation_0qdi7")
+}
+
+[node name="SceneManager" type="Node" node_paths=PackedStringArray("scene_animation")]
+script = ExtResource("1_4ntlp")
+scene_animation = NodePath("AnimationPlayer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 6
+offset_right = 1149.0
+offset_bottom = 647.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bji43")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

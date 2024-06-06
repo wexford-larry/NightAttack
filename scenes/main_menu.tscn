@@ -1,18 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxoi0tr61wjqf"]
+[gd_scene load_steps=13 format=3 uid="uid://dxoi0tr61wjqf"]
 
-[ext_resource type="FontFile" uid="uid://c4mkx8yth8vsl" path="res://assets/fonts/PixelOperator8.ttf" id="1_o26d4"]
+[ext_resource type="FontFile" uid="uid://c4mkx8yth8vsl" path="res://assets/Knight/fonts/PixelOperator8.ttf" id="1_o26d4"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_whnew"]
 [ext_resource type="Texture2D" uid="uid://slejlljs86hr" path="res://assets/backgrounds/1.png" id="3_700we"]
 [ext_resource type="Texture2D" uid="uid://c0ehk4hhfm5xq" path="res://assets/backgrounds/2.png" id="4_qsgdq"]
 [ext_resource type="Texture2D" uid="uid://cind832w2nglr" path="res://assets/backgrounds/3.png" id="5_nhv6i"]
 [ext_resource type="Texture2D" uid="uid://bsuwqh8hbar64" path="res://assets/backgrounds/4.png" id="6_27jsn"]
 [ext_resource type="AudioStream" uid="uid://bcsretnkmnalw" path="res://assets/music/Battle Ready.mp3" id="7_wpyff"]
+[ext_resource type="PackedScene" uid="uid://dresjkifc682k" path="res://scenes/fog.tscn" id="8_5igk3"]
+[ext_resource type="AudioStream" uid="uid://babsldk746xf7" path="res://assets/music/effects/buttonclick.mp3" id="8_27xwp"]
+[ext_resource type="AudioStream" uid="uid://dniwf3h7wwmjf" path="res://assets/music/effects/inputswitch.mp3" id="10_a4v3r"]
+[ext_resource type="FontFile" uid="uid://dyc2kqk1lxtj1" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="11_dd1vs"]
+[ext_resource type="Texture2D" uid="uid://immg8aboglww" path="res://assets/characters/Knight/noBKG_KnightIdle_strip.png" id="12_nxh0f"]
 
-[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("initial_button", "cloud_bg", "control")]
+[node name="MainMenu" type="Node2D" node_paths=PackedStringArray("initial_button", "cloud_bg", "control", "logo", "button_sound", "switch_sound")]
 script = ExtResource("1_whnew")
 initial_button = NodePath("Buttons/VBoxContainer/StartButton")
 cloud_bg = NodePath("ParallaxBackground/Cloud")
 control = NodePath("Buttons")
+logo = NodePath("Logo")
+button_sound = NodePath("Music/ButtonClick")
+switch_sound = NodePath("Music/MenuSwitch")
 
 [node name="Buttons" type="Control" parent="."]
 layout_mode = 3
@@ -45,7 +53,7 @@ layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.909804, 0.988235, 0.0117647, 1)
 theme_override_fonts/font = ExtResource("1_o26d4")
 theme_override_font_sizes/font_size = 16
-text = "Options"
+text = "Controls"
 alignment = 0
 
 [node name="QuitButton" type="Button" parent="Buttons/VBoxContainer"]
@@ -88,10 +96,45 @@ position = Vector2(577, 327)
 scale = Vector2(2.02083, 2.02778)
 texture = ExtResource("6_27jsn")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Fog" parent="." instance=ExtResource("8_5igk3")]
+offset_left = 3.0
+offset_top = -2.0
+offset_right = 1158.0
+offset_bottom = 647.0
+
+[node name="Music" type="Node" parent="."]
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("8_27xwp")
+
+[node name="BG" type="AudioStreamPlayer2D" parent="Music"]
 stream = ExtResource("7_wpyff")
 autoplay = true
 bus = &"MainMenu"
+
+[node name="MenuSwitch" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("10_a4v3r")
+
+[node name="Logo" type="ColorRect" parent="."]
+
+[node name="LogoText" type="Label" parent="Logo"]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 282.0
+offset_right = 862.0
+offset_bottom = 333.0
+theme_override_colors/font_color = Color(0.900705, 0.900705, 0.900705, 1)
+theme_override_fonts/font = ExtResource("11_dd1vs")
+theme_override_font_sizes/font_size = 50
+text = "Night Attack"
+
+[node name="Bjørnar" type="Sprite2D" parent="Logo"]
+position = Vector2(437, 279)
+rotation = -0.013775
+scale = Vector2(1.16212, 1.31381)
+texture = ExtResource("12_nxh0f")
+region_enabled = true
+region_rect = Rect2(0, 0, 71.811, 64)
 
 [connection signal="pressed" from="Buttons/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Buttons/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

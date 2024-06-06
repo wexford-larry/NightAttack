@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cguisqg0xbbc2"]
+
+[ext_resource type="Script" path="res://scripts/FSM/FiniteStateMachine.gd" id="1_pfgd3"]
+[ext_resource type="Script" path="res://scripts/FSM/Idle.gd" id="2_7gjc5"]
+[ext_resource type="Script" path="res://scripts/FSM/Run.gd" id="3_7lbrc"]
+[ext_resource type="Script" path="res://scripts/FSM/Jump.gd" id="4_uc3pn"]
+
+[node name="FiniteStateMachine" type="Node" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_pfgd3")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="." node_paths=PackedStringArray("Run")]
+script = ExtResource("2_7gjc5")
+Run = NodePath("../Run")
+
+[node name="Run" type="Node" parent="." node_paths=PackedStringArray("Idle")]
+script = ExtResource("3_7lbrc")
+Idle = NodePath("../Idle")
+
+[node name="Jump" type="Node" parent="."]
+script = ExtResource("4_uc3pn")

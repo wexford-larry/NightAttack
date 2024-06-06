@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cccf2a2wad5up"
-path="res://.godot/imported/tilesets.png-203a1c01616c3a1f244e619b6019c18d.ctex"
+uid="uid://j2fkbbuc56x7"
+path="res://.godot/imported/attack1.png-0d7670a291b037b740da333ae4839c1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets.png"
-dest_files=["res://.godot/imported/tilesets.png-203a1c01616c3a1f244e619b6019c18d.ctex"]
+source_file="res://assets/Knight/Attack/attack1.png"
+dest_files=["res://.godot/imported/attack1.png-0d7670a291b037b740da333ae4839c1a.ctex"]
 
 [params]
 

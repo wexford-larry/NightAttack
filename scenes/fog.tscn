@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dresjkifc682k"]
+
+[ext_resource type="Shader" path="res://shaders/fog.gdshader" id="1_xgowv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cr32o"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6xsoi"]
+seamless = true
+noise = SubResource("FastNoiseLite_cr32o")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sv660"]
+shader = ExtResource("1_xgowv")
+shader_parameter/density = 0.25
+shader_parameter/speed = Vector2(0.02, 0.01)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_6xsoi")
+
+[node name="Fog" type="ColorRect"]
+material = SubResource("ShaderMaterial_sv660")
+offset_right = 1155.0
+offset_bottom = 649.0
