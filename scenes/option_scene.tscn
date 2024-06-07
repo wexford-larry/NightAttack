@@ -28,3 +28,54 @@ offset_bottom = 549.0
 theme_override_fonts/font = ExtResource("2_hd8fh")
 theme_override_font_sizes/font_size = 16
 text = "Press `esc` to go back"
+
+[node name="ControlText" type="VBoxContainer" parent="."]
+offset_left = 356.0
+offset_top = 262.0
+offset_right = 698.0
+offset_bottom = 446.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Instruction2" type="Label" parent="ControlText"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hd8fh")
+theme_override_font_sizes/font_size = 16
+text = "🡪 to go right"
+horizontal_alignment = 1
+
+[node name="Instruction3" type="Label" parent="ControlText"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hd8fh")
+theme_override_font_sizes/font_size = 16
+text = "🡨 to go left"
+horizontal_alignment = 1
+
+[node name="Instruction4" type="Label" parent="ControlText"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hd8fh")
+theme_override_font_sizes/font_size = 16
+text = "🡱 to jump"
+horizontal_alignment = 1
+
+[node name="Instruction5" type="Label" parent="ControlText"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hd8fh")
+theme_override_font_sizes/font_size = 16
+text = "space bar to attack"
+horizontal_alignment = 1
+
+[node name="Instruction6" type="Label" parent="ControlText"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hd8fh")
+theme_override_font_sizes/font_size = 16
+text = "b to block"
+horizontal_alignment = 1
+
+[node name="Instruction7" type="Label" parent="ControlText"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hd8fh")
+theme_override_font_sizes/font_size = 16
+text = "e to interact"
+horizontal_alignment = 1

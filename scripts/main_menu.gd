@@ -15,7 +15,7 @@ func  _ready():
 func _process(delta):
 	cloud_bg.motion_offset.x += -10 * delta
 	
-	if Input.is_action_just_pressed("go_back"):
+	if Input.is_action_just_pressed("esc"):
 		self.remove_child(option_scene)
 		control.visible = true
 		logo.visible = true

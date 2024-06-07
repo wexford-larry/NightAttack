@@ -9,9 +9,10 @@
 script = ExtResource("1_pfgd3")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="." node_paths=PackedStringArray("Run")]
+[node name="Idle" type="Node" parent="." node_paths=PackedStringArray("Run", "Jump")]
 script = ExtResource("2_7gjc5")
 Run = NodePath("../Run")
+Jump = NodePath("../Jump")
 
 [node name="Run" type="Node" parent="." node_paths=PackedStringArray("Idle")]
 script = ExtResource("3_7lbrc")

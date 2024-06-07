@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://k1ketkcdal4j"]
+
+[ext_resource type="Script" path="res://scripts/display_info.gd" id="1_7h64y"]
+[ext_resource type="Texture2D" uid="uid://diyk82idx4mk" path="res://assets/objects/coin.png" id="1_y6i8s"]
+[ext_resource type="FontFile" uid="uid://dyc2kqk1lxtj1" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_gkjoj"]
+[ext_resource type="Texture2D" uid="uid://cirwq1x7ahg4b" path="res://assets/objects/blood_orb.png" id="2_ot5kq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ss7y"]
+bg_color = Color(0.76391, 0.460396, 0.434073, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1qiy"]
+bg_color = Color(0.803922, 0.0156863, 0.298039, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+border_blend = true
+
+[node name="DisplayInfo" type="Control" node_paths=PackedStringArray("progress_bar", "coin_display")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7h64y")
+progress_bar = NodePath("HealthDisplay/ProgressBar")
+coin_display = NodePath("CoinDisplay/CoinBar")
+
+[node name="HealthDisplay" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="HealthDisplay"]
+position = Vector2(10, 7)
+scale = Vector2(0.437922, 0.429625)
+texture = ExtResource("2_ot5kq")
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthDisplay"]
+offset_left = 20.0
+offset_top = 2.0
+offset_right = 97.0
+offset_bottom = 11.0
+theme_override_styles/background = SubResource("StyleBoxFlat_5ss7y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_m1qiy")
+max_value = 10.0
+step = 1.0
+show_percentage = false
+
+[node name="CoinDisplay" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CoinDisplay"]
+position = Vector2(10.4688, 23.9063)
+scale = Vector2(0.0291748, 0.0308838)
+texture = ExtResource("1_y6i8s")
+
+[node name="CoinBar" type="Label" parent="CoinDisplay"]
+offset_left = 18.4688
+offset_top = 18.9062
+offset_right = 38.4688
+offset_bottom = 28.9063
+theme_override_fonts/font = ExtResource("2_gkjoj")
+theme_override_font_sizes/font_size = 8
+text = ": 0"

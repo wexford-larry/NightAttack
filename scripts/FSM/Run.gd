@@ -12,7 +12,7 @@ func exit(Actor: AnimatedSprite2D):
 	
 
 func physics_process(_delta, Actor: AnimatedSprite2D, ActorController: CharacterBody2D):
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("left", "right")
 	
 	if direction:
 		ActorController.velocity.x = direction * SPEED

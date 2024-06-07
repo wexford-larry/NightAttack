@@ -1,11 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://brqfmos1gt0xg"]
+[gd_scene load_steps=15 format=3 uid="uid://brqfmos1gt0xg"]
 
 [ext_resource type="Texture2D" uid="uid://slejlljs86hr" path="res://assets/backgrounds/1.png" id="1_5m72y"]
+[ext_resource type="Script" path="res://scripts/level_one.gd" id="1_l1tbu"]
 [ext_resource type="PackedScene" uid="uid://nkc4ttlyori8" path="res://characters/bjørnar.tscn" id="1_uxgoa"]
 [ext_resource type="Texture2D" uid="uid://b55r434ya2a7s" path="res://assets/tilesets/mainlev_build.png" id="1_v0jf7"]
 [ext_resource type="Texture2D" uid="uid://c0ehk4hhfm5xq" path="res://assets/backgrounds/2.png" id="2_3tm7p"]
 [ext_resource type="Texture2D" uid="uid://447khq8ihp4t" path="res://assets/backgrounds/background3.png" id="3_7l0xj"]
 [ext_resource type="PackedScene" uid="uid://dresjkifc682k" path="res://scenes/fog.tscn" id="6_7s5wy"]
+[ext_resource type="PackedScene" uid="uid://dyou0o0xaspaw" path="res://scenes/shiny_pointer.tscn" id="7_gdth5"]
+[ext_resource type="FontFile" uid="uid://m6txsammv3j1" path="res://assets/fonts/PixelOperator8.ttf" id="8_w5vrr"]
+[ext_resource type="PackedScene" uid="uid://k1ketkcdal4j" path="res://scenes/display_info.tscn" id="10_bbb54"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t55xr"]
+size = Vector2(20, 298)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lf5ex"]
 texture = ExtResource("1_v0jf7")
@@ -2732,7 +2739,24 @@ texture = ExtResource("1_v0jf7")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lf5ex")
 
-[node name="LevelOne" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_r4qeq"]
+radius = 22.4977
+
+[node name="LevelOne" type="Node2D" node_paths=PackedStringArray("end_text")]
+script = ExtResource("1_l1tbu")
+end_text = NodePath("Label")
+
+[node name="LevelBorder" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LevelBorder"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBorder/StaticBody2D"]
+position = Vector2(-8, 139)
+shape = SubResource("RectangleShape2D_t55xr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelBorder/StaticBody2D"]
+position = Vector2(584, 139)
+shape = SubResource("RectangleShape2D_t55xr")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -2763,7 +2787,8 @@ format = 2
 layer_0/tile_data = PackedInt32Array(1179648, 3997696, 2, 1245184, 3997696, 2, 1310720, 3997696, 2, 1179649, 3997696, 2, 1245185, 3997696, 2, 1310721, 3997696, 2, 1179650, 3997696, 2, 1245186, 3997696, 2, 1310722, 3997696, 2, 1179651, 3997696, 2, 1245187, 3997696, 2, 1310723, 3997696, 2, 1179652, 3997696, 2, 1245188, 3997696, 2, 1310724, 3997696, 2, 1179653, 3997696, 2, 1245189, 3997696, 2, 1310725, 3997696, 2, 1179654, 3997696, 2, 1245190, 3997696, 2, 1310726, 3997696, 2, 1179655, 3997696, 2, 1245191, 3997696, 2, 1310727, 3997696, 2, 1179656, 3997696, 2, 1245192, 3997696, 2, 1310728, 3997696, 2, 1179657, 3997696, 2, 1245193, 3997696, 2, 1310729, 3997696, 2, 1179658, 3997696, 2, 1245194, 3997696, 2, 1310730, 3997696, 2, 1179659, 3997696, 2, 1245195, 3997696, 2, 1310731, 3997696, 2, 1179660, 3997696, 2, 1245196, 3997696, 2, 1310732, 3997696, 2, 1179661, 3997696, 2, 1245197, 3997696, 2, 1310733, 3997696, 2, 1179662, 3997696, 2, 1245198, 3997696, 2, 1310734, 3997696, 2, 1179663, 3997696, 2, 1245199, 3997696, 2, 1310735, 3997696, 2, 1179664, 3997696, 2, 1245200, 3997696, 2, 1310736, 3997696, 2, 1179665, 3997696, 2, 1245201, 3997696, 2, 1310737, 3997696, 2, 1179666, 3997696, 2, 1245202, 3997696, 2, 1310738, 3997696, 2, 1179667, 3997696, 2, 1245203, 3997696, 2, 1310739, 3997696, 2, 1179668, 3997696, 2, 1245204, 3997696, 2, 1310740, 3997696, 2, 1179669, 3997696, 2, 1245205, 3997696, 2, 1310741, 3997696, 2, 1179670, 3997696, 2, 1245206, 3997696, 2, 1310742, 3997696, 2, 1179671, 3997696, 2, 1245207, 3997696, 2, 1310743, 3997696, 2, 1179672, 3997696, 2, 1245208, 3997696, 2, 1310744, 3997696, 2, 1179673, 3997696, 2, 1245209, 3997696, 2, 1310745, 3997696, 2, 1179674, 3997696, 2, 1245210, 3997696, 2, 1310746, 3997696, 2, 1179675, 3997696, 2, 1245211, 3997696, 2, 1310747, 3997696, 2, 1179676, 3997696, 2, 1245212, 3997696, 2, 1310748, 3997696, 2, 1179677, 3997696, 2, 1245213, 3997696, 2, 1310749, 3997696, 2, 1179678, 3997696, 2, 1245214, 3997696, 2, 1310750, 3997696, 2, 1179679, 3997696, 2, 1245215, 3997696, 2, 1310751, 3997696, 2, 1179680, 3997696, 2, 1245216, 3997696, 2, 1310752, 3997696, 2, 1179681, 3997696, 2, 1245217, 3997696, 2, 1310753, 3997696, 2, 1179682, 3997696, 2, 1245218, 3997696, 2, 1310754, 3997696, 2, 1179683, 3997696, 2, 1245219, 3997696, 2, 1310755, 3997696, 2, 1114112, 1835008, 11, 1114113, 1835008, 11, 1114114, 1835008, 11, 1114115, 1835008, 11, 1114116, 1835008, 11, 1114117, 1835008, 11, 1114118, 1835008, 11, 1114119, 1835008, 11, 1114120, 1835008, 11, 1114121, 1835008, 11, 1114122, 1835008, 11, 1114123, 1835008, 11, 1114124, 1835008, 11, 1114125, 1835008, 11, 1114126, 1835008, 11, 1114127, 1835008, 11, 1114128, 1835008, 11, 1114129, 1835008, 11, 1114130, 1835008, 11, 1114131, 1835008, 11, 1114132, 1835008, 11, 1114133, 1835008, 11, 1114134, 1835008, 11, 1114135, 1835008, 11, 1114136, 1835008, 11, 1114137, 1835008, 11, 1114138, 1835008, 11, 1114139, 1835008, 11, 1114140, 1835008, 11, 1114141, 1835008, 11, 1114142, 1835008, 11, 1114143, 1835008, 11, 1114144, 1835008, 11, 1114145, 1835008, 11, 1114146, 1835008, 11, 1114147, 1835008, 11)
 
 [node name="Bjørnar" parent="." instance=ExtResource("1_uxgoa")]
-position = Vector2(-49, 233)
+z_index = 5
+position = Vector2(-28, 214)
 
 [node name="Camera2D" type="Camera2D" parent="Bjørnar"]
 zoom = Vector2(2, 2)
@@ -2772,4 +2797,27 @@ limit_top = 0
 limit_right = 575
 limit_bottom = 323
 
+[node name="ShinyPointer" parent="." instance=ExtResource("7_gdth5")]
+position = Vector2(376, 257)
+
+[node name="Area2D" type="Area2D" parent="ShinyPointer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShinyPointer/Area2D"]
+position = Vector2(4.18527e-05, 3.31034)
+shape = SubResource("CircleShape2D_r4qeq")
+
 [node name="Fog" parent="." instance=ExtResource("6_7s5wy")]
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 312.0
+offset_top = 142.0
+offset_right = 436.0
+offset_bottom = 165.0
+theme_override_fonts/font = ExtResource("8_w5vrr")
+theme_override_font_sizes/font_size = 8
+text = "Go save your wife..."
+
+[node name="DisplayInfo" parent="." instance=ExtResource("10_bbb54")]
+
+[connection signal="body_entered" from="ShinyPointer/Area2D" to="." method="_on_area_2d_body_entered"]

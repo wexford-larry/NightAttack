@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://dyou0o0xaspaw"]
+
+[ext_resource type="Texture2D" uid="uid://xeccncsv44e5" path="res://assets/objects/Checkpoints/Pointer_Idle.png" id="1_n25rp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtado"]
+atlas = ExtResource("1_n25rp")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e2fh"]
+atlas = ExtResource("1_n25rp")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg0fm"]
+atlas = ExtResource("1_n25rp")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5amp"]
+atlas = ExtResource("1_n25rp")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtkju"]
+atlas = ExtResource("1_n25rp")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsjix"]
+atlas = ExtResource("1_n25rp")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmd0w"]
+atlas = ExtResource("1_n25rp")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fr7m4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtado")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e2fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg0fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5amp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtkju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsjix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmd0w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ShinyPointer" type="AnimatedSprite2D"]
+position = Vector2(42.5, 55.5)
+scale = Vector2(0.729167, 0.604167)
+sprite_frames = SubResource("SpriteFrames_fr7m4")
+autoplay = "default"

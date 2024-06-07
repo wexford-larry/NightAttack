@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dxoi0tr61wjqf"]
 
-[ext_resource type="FontFile" uid="uid://c4mkx8yth8vsl" path="res://assets/Knight/fonts/PixelOperator8.ttf" id="1_o26d4"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_whnew"]
+[ext_resource type="FontFile" uid="uid://m6txsammv3j1" path="res://assets/fonts/PixelOperator8.ttf" id="2_48ic7"]
 [ext_resource type="Texture2D" uid="uid://slejlljs86hr" path="res://assets/backgrounds/1.png" id="3_700we"]
 [ext_resource type="Texture2D" uid="uid://c0ehk4hhfm5xq" path="res://assets/backgrounds/2.png" id="4_qsgdq"]
 [ext_resource type="Texture2D" uid="uid://cind832w2nglr" path="res://assets/backgrounds/3.png" id="5_nhv6i"]
@@ -43,7 +43,7 @@ grow_vertical = 0
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
 theme_override_colors/font_focus_color = Color(0.909804, 0.988235, 0.0117647, 1)
-theme_override_fonts/font = ExtResource("1_o26d4")
+theme_override_fonts/font = ExtResource("2_48ic7")
 theme_override_font_sizes/font_size = 16
 text = "Start"
 alignment = 0
@@ -51,7 +51,7 @@ alignment = 0
 [node name="OptionsButton" type="Button" parent="Buttons/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.909804, 0.988235, 0.0117647, 1)
-theme_override_fonts/font = ExtResource("1_o26d4")
+theme_override_fonts/font = ExtResource("2_48ic7")
 theme_override_font_sizes/font_size = 16
 text = "Controls"
 alignment = 0
@@ -60,7 +60,7 @@ alignment = 0
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
 theme_override_colors/font_focus_color = Color(0.874359, 0.159948, 0.00990733, 1)
-theme_override_fonts/font = ExtResource("1_o26d4")
+theme_override_fonts/font = ExtResource("2_48ic7")
 theme_override_font_sizes/font_size = 16
 text = "Quit"
 alignment = 0

@@ -1,6 +1,5 @@
 class_name FSMState extends Node
 
-signal transitioned(new_state_name: FSMState)
 var fsm_machine: FSM
 
 func enter(_Actor: AnimatedSprite2D, _ActorController: CharacterBody2D):
