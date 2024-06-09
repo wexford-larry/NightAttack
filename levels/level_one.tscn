@@ -2788,7 +2788,7 @@ layer_0/tile_data = PackedInt32Array(1179648, 3997696, 2, 1245184, 3997696, 2, 1
 
 [node name="Bjørnar" parent="." instance=ExtResource("1_uxgoa")]
 z_index = 5
-position = Vector2(-28, 214)
+position = Vector2(-36, 205)
 
 [node name="Camera2D" type="Camera2D" parent="Bjørnar"]
 zoom = Vector2(2, 2)

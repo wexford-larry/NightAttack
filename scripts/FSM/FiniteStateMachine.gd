@@ -1,7 +1,6 @@
 class_name FSM extends Node
 
 @export var Actor: AnimatedSprite2D
-@export var ActorController: CharacterBody2D
 @export var initial_state: FSMState
 var current_state: FSMState
 
@@ -11,14 +10,15 @@ func _ready():
 	for child in get_children():
 		if child is FSMState:
 			child.fsm_machine = self
+			child.ActorController = get_parent()
 	
 	if is_instance_valid(initial_state):
-		initial_state.enter(Actor, ActorController)
+		initial_state.enter(Actor)
 		current_state = initial_state
 	
 
 func _physics_process(delta):
-	current_state.physics_process(delta, Actor, ActorController)
+	current_state.physics_process(delta, Actor)
 
 
 func change_state(new_state_name: FSMState):
@@ -26,5 +26,5 @@ func change_state(new_state_name: FSMState):
 		current_state.exit(Actor)
 		current_state = new_state_name
 	
-	new_state_name.enter(Actor, ActorController)
+	new_state_name.enter(Actor)
 	

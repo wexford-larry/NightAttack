@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxoi0tr61wjqf"]
+[gd_scene load_steps=14 format=3 uid="uid://dxoi0tr61wjqf"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_whnew"]
 [ext_resource type="FontFile" uid="uid://m6txsammv3j1" path="res://assets/fonts/PixelOperator8.ttf" id="2_48ic7"]
@@ -6,12 +6,26 @@
 [ext_resource type="Texture2D" uid="uid://c0ehk4hhfm5xq" path="res://assets/backgrounds/2.png" id="4_qsgdq"]
 [ext_resource type="Texture2D" uid="uid://cind832w2nglr" path="res://assets/backgrounds/3.png" id="5_nhv6i"]
 [ext_resource type="Texture2D" uid="uid://bsuwqh8hbar64" path="res://assets/backgrounds/4.png" id="6_27jsn"]
-[ext_resource type="AudioStream" uid="uid://bcsretnkmnalw" path="res://assets/music/Battle Ready.mp3" id="7_wpyff"]
 [ext_resource type="PackedScene" uid="uid://dresjkifc682k" path="res://scenes/fog.tscn" id="8_5igk3"]
 [ext_resource type="AudioStream" uid="uid://babsldk746xf7" path="res://assets/music/effects/buttonclick.mp3" id="8_27xwp"]
 [ext_resource type="AudioStream" uid="uid://dniwf3h7wwmjf" path="res://assets/music/effects/inputswitch.mp3" id="10_a4v3r"]
 [ext_resource type="FontFile" uid="uid://dyc2kqk1lxtj1" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="11_dd1vs"]
-[ext_resource type="Texture2D" uid="uid://immg8aboglww" path="res://assets/characters/Knight/noBKG_KnightIdle_strip.png" id="12_nxh0f"]
+[ext_resource type="Texture2D" uid="uid://d3bpvri43k8n0" path="res://assets/characters/HeroandOpponents/knight/_Attack.png" id="11_ft55q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q02dw"]
+atlas = ExtResource("11_ft55q")
+region = Rect2(120, 0, 120, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2jkbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q02dw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("initial_button", "cloud_bg", "control", "logo", "button_sound", "switch_sound")]
 script = ExtResource("1_whnew")
@@ -107,11 +121,6 @@ offset_bottom = 647.0
 [node name="ButtonClick" type="AudioStreamPlayer2D" parent="Music"]
 stream = ExtResource("8_27xwp")
 
-[node name="BG" type="AudioStreamPlayer2D" parent="Music"]
-stream = ExtResource("7_wpyff")
-autoplay = true
-bus = &"MainMenu"
-
 [node name="MenuSwitch" type="AudioStreamPlayer2D" parent="Music"]
 stream = ExtResource("10_a4v3r")
 
@@ -128,13 +137,11 @@ theme_override_fonts/font = ExtResource("11_dd1vs")
 theme_override_font_sizes/font_size = 50
 text = "Night Attack"
 
-[node name="Bjørnar" type="Sprite2D" parent="Logo"]
-position = Vector2(437, 279)
+[node name="Bjørnar" type="AnimatedSprite2D" parent="Logo"]
+position = Vector2(425, 242)
 rotation = -0.013775
 scale = Vector2(1.16212, 1.31381)
-texture = ExtResource("12_nxh0f")
-region_enabled = true
-region_rect = Rect2(0, 0, 71.811, 64)
+sprite_frames = SubResource("SpriteFrames_2jkbd")
 
 [connection signal="pressed" from="Buttons/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Buttons/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

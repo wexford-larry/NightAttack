@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c04j7toqkr1iu"]
+
+[ext_resource type="AudioStream" uid="uid://bcsretnkmnalw" path="res://assets/music/Battle Ready.mp3" id="1_ej4a5"]
+
+[node name="BGMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ej4a5")
+autoplay = true
+bus = &"BGMusic"

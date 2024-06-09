@@ -14,9 +14,12 @@ script = ExtResource("2_7gjc5")
 Run = NodePath("../Run")
 Jump = NodePath("../Jump")
 
-[node name="Run" type="Node" parent="." node_paths=PackedStringArray("Idle")]
+[node name="Run" type="Node" parent="." node_paths=PackedStringArray("Idle", "Jump")]
 script = ExtResource("3_7lbrc")
 Idle = NodePath("../Idle")
+Jump = NodePath("../Jump")
 
-[node name="Jump" type="Node" parent="."]
+[node name="Jump" type="Node" parent="." node_paths=PackedStringArray("Idle", "Run")]
 script = ExtResource("4_uc3pn")
+Idle = NodePath("../Idle")
+Run = NodePath("../Run")
