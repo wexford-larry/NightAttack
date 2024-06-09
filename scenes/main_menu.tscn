@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://babsldk746xf7" path="res://assets/music/effects/buttonclick.mp3" id="8_27xwp"]
 [ext_resource type="AudioStream" uid="uid://dniwf3h7wwmjf" path="res://assets/music/effects/inputswitch.mp3" id="10_a4v3r"]
 [ext_resource type="FontFile" uid="uid://dyc2kqk1lxtj1" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="11_dd1vs"]
-[ext_resource type="Texture2D" uid="uid://d3bpvri43k8n0" path="res://assets/characters/HeroandOpponents/knight/_Attack.png" id="11_ft55q"]
+[ext_resource type="Texture2D" uid="uid://d3bpvri43k8n0" path="res://assets/characters/HeroandOpponents/Robin/_Attack.png" id="11_ft55q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q02dw"]
 atlas = ExtResource("11_ft55q")
@@ -132,7 +132,6 @@ offset_left = 317.0
 offset_top = 282.0
 offset_right = 862.0
 offset_bottom = 333.0
-theme_override_colors/font_color = Color(0.900705, 0.900705, 0.900705, 1)
 theme_override_fonts/font = ExtResource("11_dd1vs")
 theme_override_font_sizes/font_size = 50
 text = "Night Attack"

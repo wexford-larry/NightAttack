@@ -1,0 +1,10 @@
+[
+    {"name": "Wanderer", "text": "Robin?!"},
+    {"name": "Robin", "text": "Hey Wanderer, where are you off to this time around?"},
+    {"name": "Wanderer", "text": "A teribble thing has happened while you were away..."},
+    {"name": "Wanderer", "text": "Our village was ravaged by \"Goshann the Wizard\" and he has kidnapped your wife, Ivette."},
+    {"name": "Robin", "text": "What?!"},
+    {"name": "Wanderer", "text": "I heard a rumor that \"Goshann the Wizard\" is headed to his lair, up at Duskmoor..."},
+    {"name": "Wanderer", "text": "Your wife and all the others he took away will be there. Hurry!"},
+    {"name": "Robin", "text": "I vow to liberate my darling, Ivette, and other villagers captivated by that old bastard..."}
+]

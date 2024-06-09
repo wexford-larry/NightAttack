@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://cxw8a33g7g6rh"]
+
+[ext_resource type="Texture2D" uid="uid://d1ag2odum6ue1" path="res://assets/characters/HeroandOpponents/Wanderer/Idle.png" id="1_1jp7u"]
+[ext_resource type="Script" path="res://scripts/characters/wanderer.gd" id="1_ckto8"]
+[ext_resource type="FontFile" uid="uid://m6txsammv3j1" path="res://assets/fonts/PixelOperator8.ttf" id="3_4u5mp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhcg7"]
+atlas = ExtResource("1_1jp7u")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpbsk"]
+atlas = ExtResource("1_1jp7u")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuvp4"]
+atlas = ExtResource("1_1jp7u")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k8df"]
+atlas = ExtResource("1_1jp7u")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t0tr"]
+atlas = ExtResource("1_1jp7u")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uun3a"]
+atlas = ExtResource("1_1jp7u")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ruyg1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhcg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpbsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuvp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k8df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t0tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uun3a")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mj0m"]
+radius = 42.4264
+
+[node name="Wanderer" type="CharacterBody2D" node_paths=PackedStringArray("Wanderer", "interact_label") groups=["NPCs"]]
+position = Vector2(46, 27)
+script = ExtResource("1_ckto8")
+Wanderer = NodePath("AnimatedSprite2D")
+interact_label = NodePath("Interact")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(26.5, 28)
+scale = Vector2(0.585938, 0.5625)
+sprite_frames = SubResource("SpriteFrames_ruyg1")
+animation = &"Idle"
+flip_h = true
+
+[node name="Interact" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -8.0
+offset_top = 8.0
+offset_right = 86.0
+offset_bottom = 31.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_4u5mp")
+theme_override_font_sizes/font_size = 8
+text = "[E] to interact"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(34, 45)
+shape = SubResource("CircleShape2D_3mj0m")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

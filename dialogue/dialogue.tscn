@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvwl326a8lji8"]
+
+[ext_resource type="Texture2D" uid="uid://bw5dqbrlo5mr4" path="res://assets/objects/dialogue_box.png" id="1_1jty5"]
+[ext_resource type="Script" path="res://dialogue/level_one/level_dialogue.gd" id="1_eudxg"]
+[ext_resource type="FontFile" uid="uid://dyc2kqk1lxtj1" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_cboa1"]
+[ext_resource type="FontFile" uid="uid://m6txsammv3j1" path="res://assets/fonts/PixelOperator8.ttf" id="4_shhnu"]
+
+[node name="Dialogue" type="Control" node_paths=PackedStringArray("dialogue_rect", "dialogue_name", "dialogue_text")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_eudxg")
+dialogue_file = "res://dialogue/level_one/dialogue1.json"
+interacted_dialogue_file = "res://dialogue/level_one/interacted_dialogue.json"
+dialogue_rect = NodePath("NinePatchRect")
+dialogue_name = NodePath("NinePatchRect/Name")
+dialogue_text = NodePath("NinePatchRect/Text")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 99.0
+offset_right = 502.0
+offset_bottom = 149.0
+texture = ExtResource("1_1jty5")
+region_rect = Rect2(2.62226, 2.96002, 26.4856, 26.0802)
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 5.0
+offset_right = 98.0
+offset_bottom = 25.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_cboa1")
+theme_override_font_sizes/normal_font_size = 8
+text = "Name:"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 19.0
+offset_right = 308.0
+offset_bottom = 45.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_shhnu")
+theme_override_font_sizes/normal_font_size = 8
+text = "I vow to liberate my darling, Ivette, and other villagers captivated by that old bastard..."
